@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ItemPatcher debug="true">
+    <Sources>
+        <Source contentfile="Content/Items/Jobgear/Assistant/assistant_gear.xml"/>
+        <Source contentfile="Content/Items/Jobgear/Captain/captain_gear.xml"/>
+        <Source contentfile="Content/Items/Jobgear/Clown/clown.xml"/>
+        <Source contentfile="Content/Items/Jobgear/Engineer/engineer_gear.xml"/>
+        <Source contentfile="Content/Items/Jobgear/Mechanic/mechanic_gear.xml"/>
+        <Source contentfile="Content/Items/Jobgear/Medic/medic_gear.xml"/>
+        <Source contentfile="Content/Items/Jobgear/Security/securityofficer_gear.xml"/>
+        <Source contentfile="Content/Items/Jobgear/Security/securityofficer_gear1.xml" required="false"/>
+    </Sources>
+    
+    <Items>
+        <!-- Find all items in the source files with a clothing tag -->
+        <Item tags="clothing" override="True">
+            <!-- Predicates can be used to limit things further. In this case it will remove body armor -->
+            <Predicates>
+                <Predicate>//Wearable[contains(@slots,'InnerClothes')]</Predicate>
+            </Predicates>
+            <!-- Remove the ItemContainer tag from items that already have it. In this case the Medic clothing -->
+            <Remove>
+                <XPath>.//ItemContainer</XPath>
+            </Remove>
+            <!-- Add our new ItemContainer -->
+            <Add>
+                <XPath>.</XPath>
+                <Value>
+                    <ItemContainer capacity="3" maxstacksize="8" hideitems="true">
+                        <StatusEffect type="OnContained" target="Character, This" setvalue="true" disabledeltatime="true" drawinventory="false" locked="true" />
+                        <StatusEffect type="OnWearing" target="Character, This" setvalue="true" disabledeltatime="true" drawinventory="true" locked="false" />
+                        <Containable items="smallitem" excludeditems="clothing,mobilecontainer,toolbelt,toolbox,bandolier" />
+                    </ItemContainer>
+                </Value>
+            </Add>
+            <!-- Insert simplepockts to the tags -->
+            <InsertAttribute attribute="tags">
+                <XPath>.</XPath>
+                <Value>simplepockets</Value>
+            </InsertAttribute>
+            <!-- Fix the sprite paths to be mod compatible -->
+            <ReplaceAttribute attribute="texture">You
+                <XPath>//sprite[@texture='Assistant.png']</XPath>
+                <Value>Content/Items/Jobgear/Assistant/Assistant.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='captain_1.png']</XPath>
+                <Value>Content/Items/Jobgear/Captain/captain_1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='captain_2.png']</XPath>
+                <Value>Content/Items/Jobgear/Captain/captain_2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='captain_3.png']</XPath>
+                <Value>Content/Items/Jobgear/Captain/captain_3.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='captain_separatist_1.png']</XPath>
+                <Value>Content/Items/Jobgear/Captain/captain_separatist_1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='captain_separatist_2.png']</XPath>
+                <Value>Content/Items/Jobgear/Captain/captain_separatist_2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='captain_separatist_3.png']</XPath>
+                <Value>Content/Items/Jobgear/Captain/captain_separatist_3.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='clown.png']</XPath>
+                <Value>Content/Items/Jobgear/Clown/clown.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='clown_rare.png']</XPath>
+                <Value>Content/Items/Jobgear/Clown/clown_rare.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='engineer_1.png']</XPath>
+                <Value>Content/Items/Jobgear/Engineer/engineer_1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='engineer_2.png']</XPath>
+                <Value>Content/Items/Jobgear/Engineer/engineer_2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='engineer_separatist_1.png']</XPath>
+                <Value>Content/Items/Jobgear/Engineer/engineer_separatist_1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='engineer_separatist_2.png']</XPath>
+                <Value>Content/Items/Jobgear/Engineer/engineer_separatist_2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='mechanic_1.png']</XPath>
+                <Value>Content/Items/Jobgear/Mechanic/mechanic_1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='mechanic_2.png']</XPath>
+                <Value>Content/Items/Jobgear/Mechanic/mechanic_2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='mechanic_separatist_1.png']</XPath>
+                <Value>Content/Items/Jobgear/Mechanic/mechanic_separatist_1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='mechanic_separatist_2.png']</XPath>
+                <Value>Content/Items/Jobgear/Mechanic/mechanic_separatist_2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='Medic1.png']</XPath>
+                <Value>Content/Items/Jobgear/Medic/Medic1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='Medic2.png']</XPath>
+                <Value>Content/Items/Jobgear/Medic/Medic2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='Medic_separatist_01.png']</XPath>
+                <Value>Content/Items/Jobgear/Medic/Medic_separatist_01.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='Medic_separatist_02.png']</XPath>
+                <Value>Content/Items/Jobgear/Medic/Medic_separatist_02.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='SecurityOfficer1.png']</XPath>
+                <Value>Content/Items/Jobgear/Security/SecurityOfficer1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='SecurityOfficer2.png']</XPath>
+                <Value>Content/Items/Jobgear/Security/SecurityOfficer2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='SecurityOfficer3.png']</XPath>
+                <Value>Content/Items/Jobgear/Security/SecurityOfficer3.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='SecurityOfficer_separatist_1.png']</XPath>
+                <Value>Content/Items/Jobgear/Security/SecurityOfficer_separatist_1.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='SecurityOfficer_separatist_2.png']</XPath>
+                <Value>Content/Items/Jobgear/Security/SecurityOfficer_separatist_2.png</Value>
+            </ReplaceAttribute>
+            <ReplaceAttribute attribute="texture">
+                <XPath>//sprite[@texture='SecurityOfficer_separatist_3.png']</XPath>
+                <Value>Content/Items/Jobgear/Security/SecurityOfficer_separatist_3.png</Value>
+            </ReplaceAttribute>
+        </Item>
+    </Items>
+</ItemPatcher>
+        

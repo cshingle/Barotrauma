@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CharacterPatcher debug="true">
+    <Sources>
+        <Source contentfile="Content/Characters/Latcher/Latcher.xml"/>
+    </Sources>
+
+    <Characters>
+        <Character speciesname="Latcher" override="True">
+            <ReplaceAttribute attribute="StayInAbyss">
+                <XPath>//ai</XPath>
+                <Value>False</Value>
+            </ReplaceAttribute>
+        </Character>
+    </Characters>
+</CharacterPatcher>
+        

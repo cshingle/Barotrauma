@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Talents Example" modversion="1.0" corepackage="False" gameversion="1.7.0.0">
+  <XPathTalents file="%ModDir%/TalentsCaptainXPath.xml" />
+</contentpackage>
