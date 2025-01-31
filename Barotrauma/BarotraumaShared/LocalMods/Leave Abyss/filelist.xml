@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Leave Abyss" modversion="1.0" corepackage="False" gameversion="1.7.0.0">
+  <XPathCharacters file="%ModDir%/LatcherXPath.xml" />
+</contentpackage>

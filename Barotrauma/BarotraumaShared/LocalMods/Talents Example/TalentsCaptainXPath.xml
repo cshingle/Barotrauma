@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TalentPatcher debug="true">
+    <Sources>
+        <Source contentfile="Content/Talents/Captain/TalentsCaptain.xml"/>
+    </Sources>
+    
+    <Talents>
+        <Talent identifier="logisticsexpert" override="True">
+            <!-- Example of replacing an XML element -->
+            <Replace>
+                <XPath>.//AbilityGroupEffect[@abilityeffecttype="OnGainMissionMoney"]/Abilities/CharacterAbilityModifyValue</XPath>
+                <Value>
+                    <CharacterAbilityModifyValue multiplyvalue="1.4" />
+                </Value>
+            </Replace>
+            <!-- Example of replacing an attribute value -->
+            <ReplaceAttribute attribute="multiplyvalue">
+                <XPath>.//AbilityGroupEffect[@abilityeffecttype="OnGainMissionExperience"]/Abilities/CharacterAbilityModifyValue</XPath>
+                <Value>1.5</Value>
+            </ReplaceAttribute>
+        </Talent>
+    </Talents>
+</TalentPatcher>
+        
