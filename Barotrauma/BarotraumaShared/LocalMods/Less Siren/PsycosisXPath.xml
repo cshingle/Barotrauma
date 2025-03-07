@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AfflictionPatcher debug="true">
+    <Sources>
+        <Source contentfile="Content/Afflictions.xml"/>
+    </Sources>
+
+    <Afflictions>
+        <Affliction identifier="psychosis" override="True">
+            <ReplaceAttribute attribute="maxinterval">
+                <XPath>//PeriodicEffect/StatusEffect/Sound[@file='Content/Items/WarningSiren.ogg']/../..</XPath>
+                <Value>600</Value>
+            </ReplaceAttribute>
+        </Affliction>
+    </Afflictions>
+</AfflictionPatcher>
+        
